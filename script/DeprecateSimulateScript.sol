@@ -19,6 +19,7 @@ contract DeprecateSimulateScript is Script {
      // JB Multisig
     address immutable multisig = address(0xAF28bcB48C40dBC86f52D459A6562F658fc94B1e);   
     uint256 immutable projectId = 1;
+    address immutable ethAddress = address(0x000000000000000000000000000000000000EEEe);
 
     // JB V1 Governance contract
     Governance immutable public governance = Governance(0xAc43e14c018490D045a774008648c701cda8C6b3);
@@ -124,6 +125,41 @@ contract DeprecateSimulateScript is Script {
             new JBFundAccessConstraints[](0),
             ""
         );
+
+        // Step 7: Add 1 ETH to the v1.1 project's balance and tap the its payouts
+        // vm.broadcast(multisig);
+        // terminalV1_1.addToBalance{value: 1 ether}(
+        //   projectId
+        // );
+
+        // vm.broadcast(multisig);
+        // terminalV1_1.tap(
+        //   projectId,
+        //   1000000000000000000,
+        //   0,
+        //   1000000000000000000
+        // );
+
+        // Step 8: Add 1 ETH to the v2 project's balance and distribute its payouts
+        // vm.broadcast(multisig);
+        // terminalV2.addToBalanceOf{value: 1 ether}(
+        //   projectId,
+        //   1000000000000000000,
+        //   ethAddress,
+        //   "",
+        //   bytes("")
+        // );
+
+        // vm.broadcast(multisig);
+        // terminalV2.distributePayoutsOf(
+        //   projectId,
+        //   1000000000000000000,
+        //   1, // ETH
+        //   ethAddress,
+        //   0,
+        //   ""
+        // );
+
     }
 }
 
